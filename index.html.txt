@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>支付宝转账到银行卡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "微软雅黑";
+    background: #f5f5f5;
+    padding: 40px 15px;
+    text-align: center;
+  }
+  .box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 360px;
+    margin: auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  }
+  h1 {
+    font-size: 18px;
+    color: #ff4d4f;
+    margin-bottom: 20px;
+  }
+  .item {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  .card {
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin: 10px 0 20px;
+  }
+  button, a {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
+    text-decoration: none;
+  }
+  button {
+    border: none;
+    background: #1677ff;
+    color: #fff;
+  }
+  a {
+    background: #00b578;
+    color: #fff;
+  }
+  .tip {
+    font-size: 12px;
+    color: #999;
+    margin-top: 15px;
+  }
+</style>
+</head>
+
+<body>
+<div class="box">
+  <h1>支付宝转账到银行卡</h1>
+
+  <div class="item">收款人：马丽赞</div>
+  <div class="item">银行卡号</div>
+  <div class="card" id="cardNo">6228480039275962577</div>
+
+  <button onclick="copyCard()">复制银行卡号</button>
+
+  <a href="https://ds.alipay.com/?scheme=alipays://platformapi/startapp" target="_blank">
+    打开支付宝转账
+  </a>
+
+  <div class="tip">
+    请自行核对收款信息，本页面仅提供信息展示与复制
+  </div>
+</div>
+
+<script>
+function copyCard() {
+  const text = document.getElementById("cardNo").innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("银行卡号已复制");
+  });
+}
+</script>
+</body>
+</html>
